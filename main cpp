@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+struct Mahasiswa {
+    string nama;
+    int umur;
+    string jurusan;
+    int hari;
+    int bulan;
+    int tahun;
+};
+
+struct Nilai {
+    float uts, uas, tugas;
+};
+
+// === PROCEDURE ===
+void inputMahasiswa(Mahasiswa &mhs) {
+    cout << "Masukkan nama: ";
+    cin >> mhs.nama;
+    cout << "Masukkan umur: ";
+    cin >> mhs.umur;
+    cout << "Masukkan jurusan: ";
+    cin >> mhs.jurusan;
+    cout << "Masukkan hari lahir: ";
+    cin >> mhs.hari;
+    cout << "Masukkan bulan lahir: ";
+    cin >> mhs.bulan;
+    cout << "Masukkan tahun lahir: ";
+    cin >> mhs.tahun;
+}
+
+
+void inputNilai(Nilai &nl) {
+    cout << "Masukkan nilai UTS: ";
+    cin >> nl.uts;
+    cout << "Masukkan nilai UAS: ";
+    cin >> nl.uas;
+    cout << "Masukkan nilai tugas: ";
+    cin >> nl.tugas;
+}
+
+// === FUNCTION ===
+float hitungNilaiAkhir(Nilai nl) {
+    return (nl.uts * 0.35) + (nl.uas * 0.45) + (nl.tugas * 0.20);
+}
+
+void tampilkanData(Mahasiswa mhs, Nilai nl) {
+    cout << "\n=== DATA MAHASISWA ===" << endl;
+    cout << "Nama: " << mhs.nama << endl;
+    cout << "Umur: " << mhs.umur << endl;
+    cout << "Jurusan: " << mhs.jurusan << endl;
+    cout << "Tanggal lahir: " << mhs.hari << "-" << mhs.bulan << "-" << mhs.tahun << endl;
+    cout << "Nilai UTS: " << nl.uts << endl;
+    cout << "Nilai UAS: " << nl.uas << endl;
+    cout << "Nilai Tugas: " << nl.tugas << endl;
+    cout << "Nilai Akhir: " << hitungNilaiAkhir(nl) << endl;
+}
+
+int main() {
+    Mahasiswa mhs1;
+    Nilai nl1;
+
+    inputMahasiswa(mhs1);
+    inputNilai(nl1);
+    tampilkanData(mhs1, nl1);
+
+    return 0;
+}
